@@ -26,6 +26,7 @@ require('lazy').setup {
     require 'plugins.diagnostics',
     require 'plugins.git',
     require 'plugins.scroll',
+    require 'plugins.neomark',
     --  require 'plugins.gitsigns',
     --  require 'plugins.indent-blankline',
     --  require 'plugins.misc',

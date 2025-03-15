@@ -9,3 +9,6 @@ vim.o.wrap = false
 
 -- Don't show hyphens in diffs
 vim.opt.fillchars = { diff = ' ' }
+
+-- Enable mouse mode (default: '')
+vim.o.mouse = 'a'
