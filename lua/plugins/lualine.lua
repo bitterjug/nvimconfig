@@ -32,13 +32,13 @@ return {
             symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
             colored = true,
             update_in_insert = false,
-            always_visible = false,
-            cond = hide_in_width,
+            -- always_visible = true,
+            -- cond = hide_in_width,
         }
 
         local diff = {
             'diff',
-            colored = true,
+            colored = false,
             symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
             cond = hide_in_width,
         }
@@ -46,7 +46,7 @@ return {
         require('lualine').setup {
             options = {
                 icons_enabled = true,
-                theme = 'nord', -- Set theme based on environment variable
+                theme = 'oceanic_next', -- Set theme based on environment variable
                 -- Some useful glyphs:
                 -- https://www.nerdfonts.com/cheat-sheet
                 --        
@@ -58,9 +58,8 @@ return {
             sections = {
                 lualine_a = { mode },
                 lualine_b = { 'branch' },
-                lualine_c = { filename },
+                lualine_c = { filename, diagnostics },
                 lualine_x = {
-                    diagnostics,
                     diff,
                     { 'encoding', cond = hide_in_width },
                     { 'filetype', cond = hide_in_width },
