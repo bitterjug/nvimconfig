@@ -1,4 +1,3 @@
--- The original vimscript version of this might be better https://github.com/inkarkat/vim-mark
 return {
     'winter233/neomark.nvim',
     opts = {

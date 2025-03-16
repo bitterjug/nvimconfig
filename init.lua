@@ -19,6 +19,7 @@ require('lazy').setup {
     require 'plugins.lualine',
     require 'plugins.telescope',
     require 'plugins.treesitter',
+
     require 'plugins.lsp',
     require 'plugins.whichkey',
     require 'plugins.autocompletion',
@@ -27,6 +28,14 @@ require('lazy').setup {
     require 'plugins.git',
     require 'plugins.scroll',
     require 'plugins.neomark',
+    {
+        -- Detect tabstop and shiftwidth automatically
+        -- 'tpope/vim-sleuth',
+        'Darazaki/indent-o-matic',
+        config = function()
+            require('indent-o-matic').setup {}
+        end,
+    },
     --  require 'plugins.gitsigns',
     --  require 'plugins.indent-blankline',
     --  require 'plugins.misc',
@@ -34,6 +43,3 @@ require('lazy').setup {
     --  require 'plugins.bufferline',
     --  require 'plugins.alpha',
 }
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
