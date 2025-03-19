@@ -34,6 +34,14 @@ return {
         vim.fn.sign_define('DiagnosticSignHint', { text = '󰌵', texthl = 'DiagnosticSignHint' })
 
         require('neo-tree').setup {
+            event_handlers = {
+                {
+                    event = 'file_open_requested',
+                    handler = function()
+                        require('neo-tree.command').execute { action = 'close' }
+                    end,
+                },
+            },
             close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
             popup_border_style = 'rounded',
             enable_git_status = true,
@@ -311,9 +319,9 @@ return {
         }
 
         vim.cmd [[nnoremap \ :Neotree reveal<cr>]]
-        vim.keymap.set('n', '<leader>e', ':Neotree toggle position=left<CR>', { noremap = true, silent = true }) -- focus file explorer
-        vim.keymap.set('n', '<leader>ngs', ':Neotree float git_status<CR>', { noremap = true, silent = true }) -- open git status window
+        vim.keymap.set('n', '<leader>e', ':Neotree toggle position=left reveal_force_cwd<CR>', { noremap = true, silent = true }) -- focus file explorer
         vim.keymap.set('n', '-', '<cmd>Neotree toggle current reveal_force_cwd<CR>')
+        vim.keymap.set('n', '<leader>ngs', ':Neotree float git_status<CR>', { noremap = true, silent = true }) -- open git status window
         vim.keymap.set('n', '<leader>gs', '<cmd>Neotree float git_status<CR>')
         vim.keymap.set('n', '<leader>bb', '<cmd>Neotree float buffers<CR>')
     end,

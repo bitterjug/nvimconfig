@@ -1,5 +1,6 @@
 -- Make line numbers default (default: false)
-vim.wo.number = true
+vim.wo.number = false
+vim.wo.signcolumn = 'yes'
 
 -- Sync clipboard between OS and Neovim. (default: '')
 vim.o.clipboard = 'unnamedplus'
