@@ -4,15 +4,15 @@ return {
         local mode = {
             'mode',
             fmt = function(str)
-                return ' ' .. str
-                -- return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
+                -- return ' ' .. str
+                return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
             end,
         }
 
         local filename = {
             'filename',
             file_status = true, -- displays file status (readonly status, modified status)
-            path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+            path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
             symbols = {
                 modified = '', -- Text to show when the file is modified.
                 readonly = '',
@@ -28,10 +28,10 @@ return {
         local diagnostics = {
             'diagnostics',
             sources = { 'nvim_diagnostic' },
-            sections = { 'error', 'warn' },
-            symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+            sections = { 'error', 'warn', 'info', 'hint' },
+            symbols = { error = ' ', warn = ' ', info = ' ', hint = '󰌵 ' },
             colored = true,
-            update_in_insert = false,
+            update_in_insert = true,
             -- always_visible = true,
             -- cond = hide_in_width,
         }
@@ -57,8 +57,9 @@ return {
             },
             sections = {
                 lualine_a = { mode },
-                lualine_b = { 'branch' },
-                lualine_c = { filename, diagnostics },
+                -- lualine_b = { 'branch' },
+                lualine_b = { filename },
+                lualine_c = { diagnostics },
                 lualine_x = {
                     diff,
                     { 'encoding', cond = hide_in_width },
