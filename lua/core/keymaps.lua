@@ -18,3 +18,7 @@ vim.api.nvim_create_user_command('QA', 'qa', { bang = true })
 vim.api.nvim_create_user_command('Qa', 'qa', { bang = true })
 vim.api.nvim_create_user_command('WQ', 'wq', { bang = true })
 vim.api.nvim_create_user_command('Wq', 'wq', { bang = true })
+
+-- Save with control-s
+vim.keymap.set('n', '<C-s>', '<cmd>w<cr>', opts)
+vim.keymap.set('i', '<C-s>', '<cmd>w<cr>', opts)
