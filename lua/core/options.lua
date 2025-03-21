@@ -1,3 +1,7 @@
+-- Prevent LSP from overwriting treesitter color settings
+-- https://github.com/NvChad/NvChad/issues/1907
+vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
+
 -- Make line numbers default (default: false)
 vim.wo.number = false
 vim.wo.signcolumn = 'yes'
@@ -23,3 +27,5 @@ vim.o.breakindent = true
 vim.o.shiftwidth = 4 -- The number of spaces inserted for each indentation (default: 8)
 vim.o.tabstop = 4 -- Insert n spaces for a tab (default: 8)
 vim.o.softtabstop = 4 -- Number of spaces that a tab counts for while performing editing operations (default: 0)
+
+vim.opt.diffopt = { 'internal', 'vertical', 'filler', 'closeoff', algorithm = 'patience', 'iwhiteall' }
