@@ -47,7 +47,7 @@ return {
         require('lualine').setup {
             options = {
                 icons_enabled = true,
-                theme = 'gruvbox_material',
+                theme = 'gruvbox',
                 -- Some useful glyphs:
                 -- https://www.nerdfonts.com/cheat-sheet
                 --        

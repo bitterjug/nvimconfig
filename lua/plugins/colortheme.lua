@@ -1,61 +1,21 @@
 return {
-    {
-        'rebelot/kanagawa.nvim',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require('kanagawa').setup {
-                compile = true, -- enable compiling the colorscheme
-                undercurl = true, -- enable undercurls
-                commentStyle = { italic = true },
-                functionStyle = {},
-                keywordStyle = { italic = true },
-                statementStyle = { bold = true },
-                typeStyle = {},
-                transparent = true, -- do not set background color
-                dimInactive = true, -- dim inactive window `:h hl-NormalNC`
-                terminalColors = true, -- define vim.g.terminal_color_{0,17}
-                colors = { -- add/modify theme and palette colors
-                    palette = {},
-                    theme = {
-                        wave = {},
-                        lotus = {},
-                        dragon = {
-                            diff = { delete = '#000000' },
-                            ui = { bg_gutter = 'none' },
-                        },
-                        all = {
-                            diff = { delete = '#000000' },
-                            ui = { bg_gutter = 'none' },
-                        },
-                    },
-                },
-                overrides = function(colors)
-                    return {
-                        DiffDelete = { bg = '#000000' },
-                    }
-                end,
-                theme = 'dragon', -- Load "wave" theme when 'background' option is not set
-                background = { -- map the value of 'background' option to a theme
-                    dark = 'dragon', -- try "dragon" !
-                    light = 'lotus',
-                },
-            }
-
-            -- setup must be called before loading
-            -- vim.cmd 'colorscheme kanagawa-dragon'
-        end,
-    },
-    { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, opts = {} },
-    {
-        'sainnhe/gruvbox-material',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            -- Optionally configure and load the colorscheme
-            -- directly inside the plugin declaration.
-            vim.g.gruvbox_material_enable_italic = true
-            vim.cmd.colorscheme 'gruvbox-material'
-        end,
-    },
+    'f4z3r/gruvbox-material.nvim',
+    name = 'gruvbox-material',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+        require('gruvbox-material').setup {
+            contrast = 'hard',
+        }
+        local theme = require('gruvbox-material.lualine').theme 'medium'
+        -- some theme customization to your liking, for instance:
+        -- local g_colors = require("gruvbox-material.colors")
+        -- local colors = g_colors.get(vim.o.background, "medium")
+        -- theme.normal["x"] = { fg = colors.bg_statusline1, bg = colors.purple }
+        require('lualine').setup {
+            options = { theme = theme },
+        }
+        vim.cmd 'colorscheme gruvbox-material'
+    end,
 }
