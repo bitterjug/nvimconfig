@@ -28,6 +28,7 @@ require('lazy').setup {
     require 'plugins.git',
     require 'plugins.scroll',
     require 'plugins.neomark',
+    require 'plugins.navigation',
     {
         -- Detect tabstop and shiftwidth automatically
         -- 'tpope/vim-sleuth',
