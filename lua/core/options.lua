@@ -28,4 +28,32 @@ vim.o.shiftwidth = 4 -- The number of spaces inserted for each indentation (defa
 vim.o.tabstop = 4 -- Insert n spaces for a tab (default: 8)
 vim.o.softtabstop = 4 -- Number of spaces that a tab counts for while performing editing operations (default: 0)
 
+-- Make diffs nice, and always split vertically
 vim.opt.diffopt = { 'internal', 'vertical', 'filler', 'closeoff', algorithm = 'patience', 'iwhiteall' }
+
+-- Case-insensitive searching UNLESS \C or capital in search (default: false)
+vim.o.ignorecase = true
+-- Smart case (default: false)
+vim.o.smartcase = true
+
+-- Minimal number of screen lines to keep above and below the cursor (default: 0)
+vim.o.scrolloff = 4
+vim.o.sidescrolloff = 8 -- Minimal number of screen columns either side of cursor if wrap is `false` (default: 0)
+
+-- Mode shown in satus line
+vim.o.showmode = false
+
+-- Set termguicolors to enable highlight groups (default: false)
+vim.opt.termguicolors = true
+
+-- Make indenting smarter again (default: false)
+vim.o.smartindent = true
+
+-- lets try longer undo
+vim.o.undofile = true -- Save undo history (default: false)
+
+-- Hyphenated words recognized by searches (default: does not include '-')
+vim.opt.iskeyword:append '-'
+
+-- Separate Vim plugins from Neovim in case Vim still in use (default: includes this path if Vim is installed)
+vim.opt.runtimepath:remove '/usr/share/vim/vimfiles'
