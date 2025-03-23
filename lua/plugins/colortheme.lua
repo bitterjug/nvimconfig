@@ -38,5 +38,9 @@ return {
             vim.cmd 'colorscheme gruvbox-material'
         end,
     },
-    { 'brenoprata10/nvim-highlight-colors', opts = {} },
+    {
+        'brenoprata10/nvim-highlight-colors',
+        -- Show colours in colour
+        opts = {},
+    },
 }
