@@ -30,10 +30,17 @@ return {
             formatting.stylua,
             formatting.shfmt.with { args = { '-i', '4' } },
             formatting.elm_format,
-            require('none-ls.formatting.ruff').with { extra_args = { '--extend-select', 'I' } },
-            require 'none-ls.formatting.ruff_format',
         }
 
+        local lsp_formatting = function(bufnr)
+            vim.lsp.buf.format {
+                filter = function(client)
+                    return client.name == 'null-ls'
+                end,
+                bufnr = bufnr,
+                -- async = false,
+            }
+        end
         local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
         null_ls.setup {
             -- debug = true, -- Enable debug mode. Inspect logs with :NullLsLog.
@@ -46,7 +53,8 @@ return {
                         group = augroup,
                         buffer = bufnr,
                         callback = function()
-                            vim.lsp.buf.format { async = false }
+                            lsp_formatting(bufnr)
+                            --vim.lsp.buf.format { async = false }
                         end,
                     })
                 end
