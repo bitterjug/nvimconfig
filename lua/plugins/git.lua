@@ -55,4 +55,25 @@ return {
             end,
         },
     },
+    {
+        'sindrets/diffview.nvim', -- optional - Diff integration
+        config = function()
+            vim.keymap.set('n', '<leader>dvc', '<cmd>DiffviewClose<cr>', { desc = 'DiffView Close', silent = true, noremap = true })
+            vim.keymap.set('n', '<leader>dvo', '<cmd>DiffviewOpen --imply-local<cr>', { desc = 'DiffView Open', silent = true, noremap = true })
+        end,
+    },
+    {
+        'NeogitOrg/neogit',
+        dependencies = {
+            'nvim-lua/plenary.nvim', -- required
+            'sindrets/diffview.nvim', -- optional - Diff integration
+
+            -- Only one of these is needed.
+            'nvim-telescope/telescope.nvim', -- optional
+        },
+        config = function()
+            vim.keymap.set('n', '<leader>go', '<cmd>Neogit<cr>', { desc = 'NeoGit', silent = true, noremap = true })
+            vim.keymap.set('n', '<leader>gc', '<cmd>NeogitCommit<cr>', { desc = 'Neogit Commit', silent = true, noremap = true })
+        end,
+    },
 }

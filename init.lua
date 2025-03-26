@@ -37,10 +37,10 @@ require('lazy').setup {
             require('indent-o-matic').setup {}
         end,
     },
+    require 'plugins.ufo',
     --  require 'plugins.gitsigns',
     --  require 'plugins.indent-blankline',
     --  require 'plugins.misc',
-    --  require 'plugins.comment',
-    --  require 'plugins.bufferline',
+    require 'plugins.comment',
     --  require 'plugins.alpha',
 }

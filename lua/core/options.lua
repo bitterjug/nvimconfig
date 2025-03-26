@@ -13,7 +13,8 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.wrap = false
 
 -- Don't show hyphens in diffs
-vim.opt.fillchars = { diff = ' ' }
+-- vim.opt.fillchars = { diff = ' ' }
+vim.opt.fillchars = { fold = ' ', foldopen = '', foldsep = ' ', foldclose = '', diff = ' ' }
 
 -- Enable mouse mode (default: '')
 vim.o.mouse = 'a'
