@@ -24,6 +24,7 @@ return {
         { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
+        local action_state = require 'telescope.actions.state'
         -- Telescope is a fuzzy finder that comes with a lot of different things that
         -- it can fuzzy find! It's more than just a "file finder", it can search
         -- many different aspects of Neovim, your workspace, LSP, and more!
@@ -61,6 +62,34 @@ return {
                 find_files = {
                     file_ignore_patterns = { 'node_modules', '.git', '.venv' },
                     hidden = true,
+                },
+                git_commits = {
+                    mappings = {
+                        i = {
+                            ['<C-d>'] = function()
+                                vim.api.nvim_win_close(0, true)
+                                vim.cmd 'stopinsert'
+                                vim.schedule(function()
+                                    local value = action_state.get_selected_entry().value
+                                    vim.cmd(('DiffviewOpen %s^!'):format(value))
+                                end)
+                            end,
+                        },
+                    },
+                },
+                git_branches = {
+                    mappings = {
+                        i = {
+                            ['<C-d>'] = function()
+                                vim.api.nvim_win_close(0, true)
+                                vim.cmd 'stopinsert'
+                                vim.schedule(function()
+                                    local value = action_state.get_selected_entry().value
+                                    vim.cmd(('DiffviewOpen %s^!'):format(value))
+                                end)
+                            end,
+                        },
+                    },
                 },
             },
             live_grep = {
