@@ -142,6 +142,8 @@ return {
             jsonls = {},
             yamlls = {},
             elmls = {},
+            elixirls = {},
+            -- Do we need this with the elxiir tools thing?
 
             lua_ls = {
                 -- cmd = {...},

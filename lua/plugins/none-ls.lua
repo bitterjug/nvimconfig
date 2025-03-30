@@ -18,6 +18,7 @@ return {
                 'shfmt', -- Shell formatter
                 'checkmake', -- linter for Makefiles
                 'elm-format',
+                'mix', --  make tool for elixir
             },
             automatic_installation = true,
         }
@@ -30,6 +31,7 @@ return {
             formatting.stylua,
             formatting.shfmt.with { args = { '-i', '4' } },
             formatting.elm_format,
+            formatting.mix,
         }
 
         local lsp_formatting = function(bufnr)
