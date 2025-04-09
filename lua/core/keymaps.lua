@@ -31,3 +31,6 @@ vim.keymap.set('i', '<C-s>', '<cmd>w<cr>', opts())
 
 -- Search for the current selection using <space>/
 vim.keymap.set('v', '<leader>/', '"vy/<c-r>v<cr>', opts 'Search for selection')
+
+-- Type undersores with Control-u
+vim.keymap.set('i', '<c-u>', '_', opts())
