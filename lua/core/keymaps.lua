@@ -19,15 +19,16 @@ vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', opts())
 vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', opts())
 vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', opts())
 
-vim.api.nvim_create_user_command('Q', 'q', { bang = true })
-vim.api.nvim_create_user_command('QA', 'qa', { bang = true })
-vim.api.nvim_create_user_command('Qa', 'qa', { bang = true })
-vim.api.nvim_create_user_command('WQ', 'wq', { bang = true })
-vim.api.nvim_create_user_command('Wq', 'wq', { bang = true })
+vim.keymap.set('ca', 'Q', 'q')
+vim.keymap.set('ca', 'QA', 'qa')
+vim.keymap.set('ca', 'Qa', 'qa')
+vim.keymap.set('ca', 'WQ', 'wq')
+vim.keymap.set('ca', 'Wq', 'wq')
 
 -- Save with control-s
 vim.keymap.set('n', '<C-s>', '<cmd>w<cr>', opts())
-vim.keymap.set('i', '<C-s>', '<cmd>w<cr>', opts())
+vim.keymap.set('i', '<C-s>', '<esc><cmd>w<cr>', opts())
+vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', opts())
 
 -- Search for the current selection using <space>/
 vim.keymap.set('v', '<leader>/', '"vy/<c-r>v<cr>', opts 'Search for selection')
