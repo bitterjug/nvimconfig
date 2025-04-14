@@ -32,7 +32,6 @@ return {
                 enable = true,
                 keymaps = {
                     node_incremental = 'v',
-                    scope_incremental = 'grc',
                     node_decremental = 'V',
                 },
             },
