@@ -30,5 +30,18 @@ return {
                 },
             }
         end,
+        enabled = false,
+    },
+    {
+        'declancm/cinnamon.nvim',
+        version = '*', -- use latest release
+        opts = {
+            delay = 2,
+            keymaps = {
+                basic = true,
+                extra = true,
+            },
+            -- Only s       -- change default options here
+        },
     },
 }
