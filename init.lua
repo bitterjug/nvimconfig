@@ -40,4 +40,5 @@ require('lazy').setup {
     },
     require 'plugins.ufo',
     require 'plugins.elixir',
+    require 'plugins.autopairs',
 }
