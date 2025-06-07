@@ -36,12 +36,14 @@ return {
         'declancm/cinnamon.nvim',
         version = '*', -- use latest release
         opts = {
-            delay = 2,
+            delay = 1,
             keymaps = {
                 basic = true,
                 extra = true,
             },
-            -- Only s       -- change default options here
+            max_delta = {
+                time = 500,
+            },
         },
     },
 }
