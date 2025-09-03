@@ -59,6 +59,9 @@ return {
                 },
             },
             pickers = {
+                lsp_references = {
+                    show_line = false,
+                },
                 find_files = {
                     file_ignore_patterns = { 'node_modules', '.git', '.venv' },
                     hidden = true,
