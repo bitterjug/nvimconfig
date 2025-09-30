@@ -60,3 +60,17 @@ vim.opt.iskeyword:append '-'
 vim.opt.runtimepath:remove '/usr/share/vim/vimfiles'
 
 vim.opt.wildmode = { 'longest:full', 'full' }
+
+-- Enable lsps (configs from nvim-lspconfig)
+vim.lsp.enable 'elmls'
+-- Configure lua_ls to know 'vim' is a global
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' },
+            },
+        },
+    },
+})
+vim.lsp.enable 'lua_ls'
