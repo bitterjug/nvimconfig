@@ -34,11 +34,9 @@ require('lazy').setup {
         -- Detect tabstop and shiftwidth automatically
         -- 'tpope/vim-sleuth',
         'Darazaki/indent-o-matic',
-        config = function()
-            require('indent-o-matic').setup {}
-        end,
     },
     require 'plugins.ufo',
     require 'plugins.elixir',
     require 'plugins.autopairs',
+    require 'plugins.unison',
 }

@@ -1,6 +1,6 @@
 -- Prevent LSP from overwriting treesitter color settings
 -- https://github.com/NvChad/NvChad/issues/1907
-vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
+vim.hl.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
 
 -- Make line numbers default (default: false)
 vim.wo.number = false
@@ -60,17 +60,3 @@ vim.opt.iskeyword:append '-'
 vim.opt.runtimepath:remove '/usr/share/vim/vimfiles'
 
 vim.opt.wildmode = { 'longest:full', 'full' }
-
--- Enable lsps (configs from nvim-lspconfig)
-vim.lsp.enable 'elmls'
--- Configure lua_ls to know 'vim' is a global
-vim.lsp.config('lua_ls', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' },
-            },
-        },
-    },
-})
-vim.lsp.enable 'lua_ls'
