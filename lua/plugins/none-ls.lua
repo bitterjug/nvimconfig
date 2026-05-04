@@ -25,8 +25,9 @@ return {
 
         local sources = {
             diagnostics.checkmake,
+            require 'none-ls.diagnostics.eslint_d',
             formatting.prettier.with {
-                filetypes = { 'html', 'json', 'yaml', 'markdown', 'scss', 'ts' },
+                filetypes = { 'html', 'json', 'yaml', 'markdown', 'scss', 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' },
             },
             formatting.stylua,
             formatting.shfmt.with { args = { '-i', '4' } },
@@ -49,7 +50,7 @@ return {
             sources = sources,
             -- you can reuse a shared lspconfig on_attach callback here
             on_attach = function(client, bufnr)
-                if client.supports_method 'textDocument/formatting' then
+                if client:supports_method 'textDocument/formatting' then
                     vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
                     vim.api.nvim_create_autocmd('BufWritePre', {
                         group = augroup,

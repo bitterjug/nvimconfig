@@ -19,7 +19,6 @@ require('lazy').setup {
     require 'plugins.lualine',
     require 'plugins.telescope',
     require 'plugins.treesitter',
-
     require 'plugins.lsp',
     require 'plugins.whichkey',
     require 'plugins.autocompletion',
@@ -39,4 +38,5 @@ require('lazy').setup {
     require 'plugins.elixir',
     require 'plugins.autopairs',
     require 'plugins.unison',
+    { 'folke/lazydev.nvim', ft = 'lua', opts = {} },
 }
